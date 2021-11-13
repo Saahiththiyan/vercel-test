@@ -8,14 +8,17 @@ axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? process.env.REA
 
 export default function Home() {
   const [leads, setLeads] = useState([])
+  const [transactions, setTransactions] = useState([])
   useEffect(() => {
-    const token = '82|sjZXJvvFYNJIdxwN6Yo3Ypd6L9SzGV2wTOAWOQI9'
-    const config = {
-      headers : {Authorization: `Bearer $${token}`}
-    }
     const url = 'https://618f275750e24d0017ce1630.mockapi.io/api/v1/leads'
-    axios.get(url, config).then(({data}) => {
+    axios.get(url).then(({data}) => {
       setLeads(data)
+    })
+  }, [])
+  useEffect(() => {
+    const url = 'https://618f275750e24d0017ce1630.mockapi.io/api/v1/transactions'
+    axios.get(url).then(({data}) => {
+      setTransactions(data)
     })
   }, [])
   return (
@@ -52,6 +55,32 @@ export default function Home() {
                   <td>{lead.contact}</td>
                   <td>{lead.address}</td>
                   <td>{lead.country}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+            
+        </table>
+        <p className={styles.description}>
+          mock transactions
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <td>amount</td>
+              <td>account name</td>
+              <td>account number</td>
+              <td>transaction type</td>
+            </tr>
+          </thead>
+          <tbody>
+            {transactions.map(transaction => {
+              return (
+                <tr key={transaction.id}>
+                  <td>{transaction.amount}</td>
+                  <td>{transaction.account_name}</td>
+                  <td>{transaction.account_number}</td>
+                  <td>{transaction.transaction_type}</td>
                 </tr>
               )
             })}
