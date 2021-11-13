@@ -40,7 +40,7 @@ export default function Home() {
               <td>first name</td>
               <td>last name</td>
               <td>address</td>
-              <td>country</td>
+              <td>country name</td>
             </tr>
           </thead>
           <tbody>
