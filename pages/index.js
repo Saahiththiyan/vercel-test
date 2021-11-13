@@ -68,9 +68,9 @@ export default function Home() {
           <thead>
             <tr>
               <td>amount</td>
-              <td>account_name</td>
-              <td>account_number</td>
-              <td>transaction_type</td>
+              <td>account name</td>
+              <td>account number</td>
+              <td>transaction type</td>
             </tr>
           </thead>
           <tbody>
