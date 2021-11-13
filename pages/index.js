@@ -49,6 +49,7 @@ export default function Home() {
                 <tr key={lead.id}>
                   <td>{lead.first_name}</td>
                   <td>{lead.last_name}</td>
+                  <td>{lead.contact}</td>
                   <td>{lead.address}</td>
                   <td>{lead.country}</td>
                 </tr>
